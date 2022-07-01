@@ -1,0 +1,2 @@
+# smser
+ send sms automatic
