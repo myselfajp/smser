@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <meta charset="utf-8" />
+    <title> تست سایت رضا </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A premium admin dashboard template by Mannatthemes" name="description" />
+    <meta content="Mannatthemes" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/favicon.ico">
+    <!-- App css -->
+    <link href="assets/home/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/home/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/home/css/style.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body class="account-body accountbg" style="background-image: url('assets/bg3.jpg');">
+
+    <!-- Log In page -->
+    <div class="row vh-100 ">
+
+        <div wire:initial-data="{&quot;id&quot;:&quot;ahKAE67YEfXjmugTuuaU&quot;,&quot;name&quot;:&quot;home&quot;,&quot;redirectTo&quot;:false,&quot;locale&quot;:&quot;fa&quot;,&quot;events&quot;:[&quot;refreshPage&quot;,&quot;changePage&quot;],&quot;eventQueue&quot;:[],&quot;dispatchQueue&quot;:[],&quot;data&quot;:{&quot;auth&quot;:true,&quot;page&quot;:&quot;products&quot;,&quot;lastPage&quot;:false},&quot;children&quot;:{&quot;products&quot;:{&quot;id&quot;:&quot;aegsX3eB9205Ht0E3oGI&quot;,&quot;tag&quot;:&quot;div&quot;}},&quot;checksum&quot;:&quot;a64c8e65a244c93138fffdb16ae624127e3046ccdd47fad5f2b50a4ee7b4c940&quot;}"
+            wire:id="ahKAE67YEfXjmugTuuaU" class="container-fluid d-flex align-items-center justify-content-center">
+
+
+            <div wire:initial-data="{&quot;id&quot;:&quot;aegsX3eB9205Ht0E3oGI&quot;,&quot;name&quot;:&quot;products&quot;,&quot;redirectTo&quot;:false,&quot;locale&quot;:&quot;fa&quot;,&quot;events&quot;:[],&quot;eventQueue&quot;:[],&quot;dispatchQueue&quot;:[],&quot;data&quot;:{&quot;products&quot;:{&quot;class&quot;:&quot;App\\Product&quot;,&quot;id&quot;:[1],&quot;relations&quot;:[],&quot;connection&quot;:&quot;mysql&quot;}},&quot;children&quot;:[],&quot;checksum&quot;:&quot;b4b13af87266175e66e9c3c2e74d13226dc7b1bfb1bd25031f33376e15be28c7&quot;}"
+                wire:id="aegsX3eB9205Ht0E3oGI">
+                <div class="text-center">
+                    <h4 class="text-black font-weight-bold">لطفا پلن موردنظرتون رو انتخاب کنید</h4>
+                    <p class="text-black font-14">⚠️دقت بفرمایید در ورژن جدید این سرویس <br> ارسال پیام ها به صورت
+                        صبحگاهی نخواهد بود<br> و پیام ها در ساعات مختلف ارسال خواهند شد </p>
+                </div>
+
+                <div class="custom-card p-4 mt-3">
+                    <div class="text-center">
+                        <h4 class="text-white">اشتراک 1 ماهه</h4>
+                        <h6 class="text-white">ارسال روزانه ۱ عدد پیامک در ساعات رندوم</h6>
+                        <div class="d-flex justify-content-center">
+                            <div class="m-1">
+                                <div class="btn btn-block btn-white custom-radius">19,900 تومان</div>
+                            </div>
+                            <div class="m-1">
+                                <form action="payment" method="post">
+                                    <input type="hidden" name="_token" value="JV4wvt6zlZT7J6YS4C2RjqJtulZpCjizj1MPfqIs">
+                                    <input type="hidden" name="product_id" value="1">
+                                    <button type="submit" class="btn btn-block btn-white custom-radius">پرداخت و
+                                        فعالسازی</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+</html>
