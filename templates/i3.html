@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" dir="rtl">
+{% extends "base.html" %}
+{% load static %}
 
-<head>
-    <meta charset="utf-8" />
-    <title> تست سایت رضا </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="A premium admin dashboard template by Mannatthemes" name="description" />
-    <meta content="Mannatthemes" name="author" />
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/favicon.ico">
-    <!-- App css -->
-    <link href="assets/home/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/home/css/icons.css" rel="stylesheet" type="text/css" />
-    <link href="assets/home/css/style.css" rel="stylesheet" type="text/css" />
-
-</head>
-
+{% block body %}
 <body class="account-body accountbg">
 
     <!-- Log In page -->
@@ -43,3 +29,4 @@
 </body>
 
 </html>
+{% endblock %}
