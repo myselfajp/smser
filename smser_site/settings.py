@@ -39,8 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #my apps
-    'panel.apps.PanelConfig'
+    'users.apps.UsersConfig',
+    'codes.apps.CodesConfig'
+    
 ]
+LOGIN_URL = '/login/'
+AUTH_USER_MODEL='users.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

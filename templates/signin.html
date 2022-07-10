@@ -13,17 +13,22 @@
             <div wire:initial-data="{&quot;id&quot;:&quot;l2OtXrCeohneeHa3srOd&quot;,&quot;name&quot;:&quot;auth.auth&quot;,&quot;redirectTo&quot;:false,&quot;locale&quot;:&quot;fa&quot;,&quot;events&quot;:[],&quot;eventQueue&quot;:[],&quot;dispatchQueue&quot;:[],&quot;data&quot;:{&quot;rand&quot;:&quot;&quot;,&quot;code&quot;:null,&quot;mobile&quot;:null,&quot;name&quot;:null,&quot;user_exist&quot;:false},&quot;children&quot;:[],&quot;checksum&quot;:&quot;2c8fc7d8829690ba9d5f21d5feadabf1666185a8028670791fe359a98025507f&quot;}"
                 wire:id="l2OtXrCeohneeHa3srOd" class="custom-card p-4">
 
-                <div class="text-right">
+                <h6 class="text-white">{{ error|safe }}</h6>
 
-                </div>
-
-                <form wire:submit.prevent="login">
+                <form method="post" action="{% url 'login' %}" wire:submit.prevent="login">
+					{%csrf_token%}
 
                     <div class="input-group">
-                        <input type="text" class="form-control " placeholder="لطفا شماره همراهتون رو وارد کنید"
+                        <input name="first_name" type="text" class="form-control " placeholder="اسمی که ما میتونیم صداتون کنیم"
                             wire:model.lazy="mobile">
                     </div>
-
+                    <br>
+                    <div class="input-group">
+                        <input name="phone_number" type="text" class="form-control " placeholder="لطفا شماره همراهتون رو وارد کنید"
+                            wire:model.lazy="mobile">
+                    </div>
+                    <br>
+                    
 
                     <button class="btn btn-white btn-block mt-2 custom-radius">تایید</button>
 
