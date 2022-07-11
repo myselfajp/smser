@@ -7,18 +7,16 @@
     <!-- Log In page -->
     <div class="row vh-100 ">
 
-        <div wire:id="ALM4BoLpif49hDskx45V" class="container-fluid d-flex align-items-center justify-content-center">
+        <div class="container-fluid d-flex align-items-center justify-content-center">
 
 
-            <div wire:id="ONxNGMWqiUhPbCvuFfqZ" class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center">
                 <div class="custom-card p-4 mt-3 w-25">
                     <div class="text-center">
                         <h6 class="text-white">{{name}}</h6>
                         <div class="row">
                             <div class="btn btn-white btn-block mt-2 custom-radius">شارژ سرویس شما: 0 روز</div>
-                            <a href="#orders" class="btn btn-white btn-block mt-2 custom-radius">مشاهده سرویس های
-                                خریداری شده</a>
-                            <a href="#products" class="btn btn-white btn-block mt-2 custom-radius">خریداری و یا شارژ
+                            <a href="{% url 'buy' %}" class="btn btn-white btn-block mt-2 custom-radius">خریداری و یا شارژ
                                 سرویس</a>
                         </div>
                     </div>

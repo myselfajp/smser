@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<body class="account-body accountbg" style="background-image: url('{% static 'bg2.jpg' %}');">
+
+    <!-- Log In page -->
+    <div class="row vh-100 ">
+
+        <div class="container-fluid d-flex align-items-center justify-content-center">
+
+
+            <div>
+                <div class="custom-card p-4 mt-3">
+                    <h4 class="text-white ">لطفا پلن موردنظرتون رو انتخاب کنید</h4>
+                    <p class="text-white font-14">⚠️در ورژن جدید این سرویس ارسال پیام ها<br> به صورت
+                        صبحگاهی نخواهد بود و پیام ها <br>در ساعات مختلف ارسال خواهند شد </p>
+                </div>
+
+                <div class="custom-card p-4 mt-3">
+                    <div class="text-center">
+                        <h4 class="text-white ">اشتراک 1 ماهه</h4>
+                        <h6 class="text-white">ارسال روزانه ۱ عدد پیامک در ساعات رندوم</h6>
+                        <div class="d-flex justify-content-center">
+                            <div class="m-1">
+                                <div class="btn btn-block btn-white custom-radius">19,900 تومان</div>
+                            </div>
+                            <div class="m-1">
+                                <form action="payment" method="post">
+                                    <input type="hidden" name="_token" value="JV4wvt6zlZT7J6YS4C2RjqJtulZpCjizj1MPfqIs">
+                                    <input type="hidden" name="product_id" value="1">
+                                    <button type="submit" class="btn btn-block btn-white custom-radius">پرداخت و
+                                        فعالسازی</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+</html>
+{% endblock %}

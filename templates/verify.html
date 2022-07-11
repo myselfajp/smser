@@ -7,27 +7,29 @@
     <!-- Log In page -->
     <div class="row vh-100 ">
 
-        <div wire:initial-data="{&quot;id&quot;:&quot;D7FS3NJO8LKyXjqzNzbf&quot;,&quot;name&quot;:&quot;home&quot;,&quot;redirectTo&quot;:false,&quot;locale&quot;:&quot;fa&quot;,&quot;events&quot;:[&quot;refreshPage&quot;,&quot;changePage&quot;],&quot;eventQueue&quot;:[],&quot;dispatchQueue&quot;:[],&quot;data&quot;:{&quot;auth&quot;:false,&quot;page&quot;:&quot;panel&quot;,&quot;lastPage&quot;:false},&quot;children&quot;:{&quot;RM7PAUA&quot;:{&quot;id&quot;:&quot;l2OtXrCeohneeHa3srOd&quot;,&quot;tag&quot;:&quot;div&quot;}},&quot;checksum&quot;:&quot;0af31f3fa8e3b12ff73f78bec27c0f70c0dda6cd54e2deac7a80d37c8a710d68&quot;}"
-            wire:id="D7FS3NJO8LKyXjqzNzbf" class="container-fluid d-flex align-items-center justify-content-center">
+        <div class="container-fluid d-flex align-items-center justify-content-center">
 
 
-            <div wire:initial-data="{&quot;id&quot;:&quot;l2OtXrCeohneeHa3srOd&quot;,&quot;name&quot;:&quot;auth.auth&quot;,&quot;redirectTo&quot;:false,&quot;locale&quot;:&quot;fa&quot;,&quot;events&quot;:[],&quot;eventQueue&quot;:[],&quot;dispatchQueue&quot;:[],&quot;data&quot;:{&quot;rand&quot;:&quot;&quot;,&quot;code&quot;:null,&quot;mobile&quot;:null,&quot;name&quot;:null,&quot;user_exist&quot;:false},&quot;children&quot;:[],&quot;checksum&quot;:&quot;2c8fc7d8829690ba9d5f21d5feadabf1666185a8028670791fe359a98025507f&quot;}"
-                wire:id="l2OtXrCeohneeHa3srOd" class="custom-card p-4">
+            <div class="custom-card p-4">
                 <div class="container-fluid p-0 ">
-                    
-                        <h6 class="text-white">{{ error }}</h6>
-                   
+
+                    <h6 class="text-white">{{ error|safe }}</h6>
+
 
                     <form method="post" action="{% url 'verify' %}" wire:submit.prevent="login">
                         {%csrf_token%}
 
                         <div class="input-group">
                             <input name="code_num" type="text" class="form-control "
-                                placeholder="کدارسال شده را وارد کنید" wire:model.lazy="mobile">
+                                placeholder="کدارسال شده رو اینجا وارد کنید" wire:model.lazy="mobile">
                         </div>
 
 
                         <button class="btn btn-white btn-block mt-2 custom-radius">تایید</button>
+                        <br>
+                        <br>
+                        <a class="btn btn-white btn-block mt-2 custom-radius" href="/">شماره رو اشتباه وارد کردم</a>
+
 
                     </form>
 
