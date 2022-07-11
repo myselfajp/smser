@@ -69,17 +69,32 @@ def http_profile(request):
     pk=request.session.get("pk")
     user=CustomUser.objects.get(pk=pk)
     name=user.first_name
+    charge=user.charge
     if name:
         name=f"{name} عزیز سلام"
     else:
         name="دوست عزیز سلام"
-
-    return render(request,'profile.html',{"name":name})
+    return render(request,'profile.html',{"name":name,"charge":charge})
 
 @login_required
 def http_logout(request):
     logout(request)
     return redirect('/')
-
+     
+@login_required
 def http_buy(request):
     return render(request,'buy.html')
+
+@login_required
+def http_payment(request):
+    pk=request.session.get("pk")
+    user=CustomUser.objects.get(pk=pk)
+    user.charge=user.charge+30
+    user.save()
+    name=user.first_name
+    charge=user.charge
+    if name:
+        name=f"{name} عزیز سلام"
+    else:
+        name="دوست عزیز سلام"
+    return render(request,'profile.html',{"name":name,"charge":charge})

@@ -19,14 +19,16 @@
 
                 <div class="custom-card p-4 mt-3">
                     <div class="text-center">
-                        <h4 class="text-white ">اشتراک 1 ماهه</h4>
+                        <h4 class="text-white ">اضافه کردن 30 روز اشتراک به روزهای فعلی</h4>
                         <h6 class="text-white">ارسال روزانه ۱ عدد پیامک در ساعات رندوم</h6>
                         <div class="d-flex justify-content-center">
                             <div class="m-1">
                                 <div class="btn btn-block btn-white custom-radius">19,900 تومان</div>
                             </div>
                             <div class="m-1">
-                                <form action="payment" method="post">
+                                <form method="post" action="{% url 'payment' %}">
+                                {%csrf_token%}
+
                                     <input type="hidden" name="_token" value="JV4wvt6zlZT7J6YS4C2RjqJtulZpCjizj1MPfqIs">
                                     <input type="hidden" name="product_id" value="1">
                                     <button type="submit" class="btn btn-block btn-white custom-radius">پرداخت و
