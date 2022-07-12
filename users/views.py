@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.shortcuts import redirect ,render
 from django.contrib.auth import login,logout
 from django.contrib.auth.decorators import login_required
@@ -21,7 +20,7 @@ def http_login (request):
 
                     user.code.save()
                     request.session["pk"]=user.pk
-                    code_sender(number,user.code)
+                    # code_sender(number,user.code)
                     return redirect("verify")
                 else:
 
@@ -32,7 +31,7 @@ def http_login (request):
                     user.password="ABC!@#123#@!321def"
                     user.save()
                     request.session["pk"]=user.pk
-                    code_sender(number,user.code)
+                    # code_sender(number,user.code)
                     return redirect ("verify")
 
             else:
@@ -42,6 +41,8 @@ def http_login (request):
         return redirect("profile")
 
     return render(request,'signin.html',{"error":error})
+
+
 
 def http_verify (request):
     if not request.user.is_authenticated:
@@ -64,26 +65,39 @@ def http_verify (request):
         return redirect("profile")
     return render(request,'verify.html',{"error":error})
     
+
+
 @login_required
 def http_profile(request):
     pk=request.session.get("pk")
-    user=CustomUser.objects.get(pk=pk)
-    name=user.first_name
-    charge=user.charge
-    if name:
-        name=f"{name} عزیز سلام"
+    if pk:
+        user=CustomUser.objects.get(pk=pk)
+        name=user.first_name
+        charge=user.charge
+        if name:
+            name=f"{name} عزیز سلام"
+        else:
+            name="دوست عزیز سلام"
     else:
-        name="دوست عزیز سلام"
+        logout(request)
+        return redirect('/')
+        
     return render(request,'profile.html',{"name":name,"charge":charge})
+
+
 
 @login_required
 def http_logout(request):
     logout(request)
     return redirect('/')
      
+
+
 @login_required
 def http_buy(request):
     return render(request,'buy.html')
+
+
 
 @login_required
 def http_payment(request):

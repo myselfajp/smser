@@ -11,7 +11,7 @@ urlpatterns = [
     path("profile/",http_profile,name='profile'),
     path("buy/",http_buy,name='buy'),
     path("cikis/",http_logout),
-    path("payment/",http_payment,name='payment'),
+    # path("payment/",http_payment,name='payment'),
 
     
 ]

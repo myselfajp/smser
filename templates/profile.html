@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block body %}
+
 <body class="account-body accountbg">
 
     <!-- Log In page -->
@@ -12,11 +13,14 @@
 
             <div class="d-flex justify-content-center">
                 <div class="custom-card p-4 mt-3 w-25">
+                    
                     <div class="text-center">
                         <h6 class="text-white">{{name}}</h6>
+                        <h6 class="text-white">{{ error|safe }}</h6>
+                        <h6 class="text-white">شارژ سرویس شما: {{charge}} روز</h6>
                         <div class="row">
-                            <div class="btn btn-white btn-block mt-2 custom-radius">شارژ سرویس شما: {{charge}} روز</div>
-                            <a href="{% url 'buy' %}" class="btn btn-white btn-block mt-2 custom-radius">خریداری و یا شارژ
+                            <a href="{% url 'buy' %}" class="btn btn-white btn-block mt-2 custom-radius">خریداری و یا
+                                شارژ
                                 سرویس</a>
                         </div>
                     </div>

@@ -40,9 +40,11 @@ INSTALLED_APPS = [
 
     #my apps
     'users.apps.UsersConfig',
-    'codes.apps.CodesConfig'
-    
+    'codes.apps.CodesConfig',
+    'payment.apps.PaymentConfig',
+    'azbankgateways',
 ]
+
 LOGIN_URL = '/login/'
 AUTH_USER_MODEL='users.CustomUser'
 
@@ -138,3 +140,22 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AZ_IRANIAN_BANK_GATEWAYS = {
+   'GATEWAYS': {
+       'ZARINPAL': {
+           'MERCHANT_CODE': 'a68ddebc-d49f-40d9-943d-97b5445929dd',
+           'SANDBOX': 1,  # 0 disable, 1 active
+       },
+       
+   },
+   'IS_SAMPLE_FORM_ENABLE': True, # اختیاری و پیش فرض غیر فعال است
+   'DEFAULT': 'ZARINPAL',
+   'CURRENCY': 'IRR', # اختیاری
+   'TRACKING_CODE_QUERY_PARAM': 'tc', # اختیاری
+   'TRACKING_CODE_LENGTH': 16, # اختیاری
+   'SETTING_VALUE_READER_CLASS': 'azbankgateways.readers.DefaultReader', # اختیاری
+   'BANK_PRIORITIES': [
+       # and so on ...
+   ], # اختیاری
+}
