@@ -1,8 +1,8 @@
-from django.contrib import admin
+from azbankgateways.urls import az_bank_gateways_urls
+from django.conf.urls.static import static
 from django.urls import path , include
 from django.conf import settings
-from django.conf.urls.static import static
-from azbankgateways.urls import az_bank_gateways_urls
+from django.contrib import admin
 # admin.autodiscover()
 
 

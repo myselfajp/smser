@@ -73,11 +73,12 @@ def callback_gateway_view(request):
         tc=request.GET.get("tc")
         try:
             check=paymented.objects.get(ok=tc)
+            print(check)
         except:
-            check="expired"
+            check=None
 
         if not check:
-            error="پرداخت با موفقیت انجام شد."
+            error="پرداخت با موفقیت انجام شد"
             user.charge=user.charge+30
             user.save()
             charge=user.charge
