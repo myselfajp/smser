@@ -22,6 +22,9 @@
                             <a href="{% url 'buy' %}" class="btn btn-white btn-block mt-2 custom-radius">خریداری و یا
                                 شارژ
                                 سرویس</a>
+                            {% if request.user.phone_number in '0905739236909195035763' %}
+                            <a href="{% url 'panel' %}" class="btn btn-white btn-block mt-2 custom-radius">پنل ادمین</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

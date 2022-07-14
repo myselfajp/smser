@@ -7,11 +7,16 @@ from django.contrib import admin
 
 
 urlpatterns = [
+
     path('bankgateways/', az_bank_gateways_urls()),
+
     path('payment/',include('payment.urls')),
-    path('admin/', admin.site.urls),
+
+    path('panel/',include('panel.urls')),
+
+    path('girisadmin/', admin.site.urls),
+
     path('',include('users.urls')),
-        
 
 ]
 urlpatterns += static(settings.STATIC_URL)

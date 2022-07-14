@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+
+<body class="account-body accountbg">
+    <!-- Log In page -->
+    <div class="row vh-100 ">
+
+        <div class="container-fluid d-flex align-items-center justify-content-center">
+
+
+            <div class="custom-card p-4">
+                <div class="text-center">
+                <h6 class="text-white">{{ messege|safe }}</h6>
+                <br>
+                </div>
+                <form method="post" action="{% url 'panel' %}" wire:submit.prevent="login">
+
+                    {%csrf_token%}
+                    {% if is_sended == "not ok" %}
+                    <div class="input-group">
+                        <textarea name="textbox" type="text" class="form-control "
+                            placeholder="متن ارسالی به کاربران دارای اشتراک"></textarea>
+                    </div>
+                    <br>
+                    <button class="btn btn-white btn-block mt-2 custom-radius">تایید</button>
+                    {% else %}
+                    <br>
+                    <a href="{% url 'panel' %}" class="btn btn-white btn-block mt-2 custom-radius">چک کردن کاربران
+                        فعال</a>
+                    <br>
+                    {% endif %}
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+{% endblock %}

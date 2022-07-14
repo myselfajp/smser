@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'codes.apps.CodesConfig',
     'payment.apps.PaymentConfig',
+    'panel.apps.PanelConfig',
     'azbankgateways',
 ]
 

@@ -17,13 +17,11 @@ def http_login (request):
                 except:
                     user=None
                 if user:
-
                     user.code.save()
                     request.session["pk"]=user.pk
-                    # code_sender(number,user.code)
+                    code_sender(number,user.code)
                     return redirect("verify")
                 else:
-
                     user=CustomUser()
                     user.phone_number=number
                     user.username=number
@@ -31,7 +29,7 @@ def http_login (request):
                     user.password="ABC!@#123#@!321def"
                     user.save()
                     request.session["pk"]=user.pk
-                    # code_sender(number,user.code)
+                    code_sender(number,user.code)
                     return redirect ("verify")
 
             else:
@@ -52,6 +50,7 @@ def http_verify (request):
             code=user.code
         else:
             return redirect('/')
+        code=user.code
         print(code)
         error=''
         if request.method == 'POST':
@@ -69,28 +68,16 @@ def http_verify (request):
 
 @login_required
 def http_profile(request):
-    pk=request.session.get("pk")
-    if pk:
-        user=CustomUser.objects.get(pk=pk)
-        name=user.first_name
-        charge=user.charge
-        if name:
-            name=f"{name} عزیز سلام"
-        else:
-            name="دوست عزیز سلام"
+    user=request.user
+    name=user.first_name
+    charge=user.charge
+    if name:
+        name=f"{name} عزیز سلام"
     else:
-        logout(request)
-        return redirect('/')
+        name="دوست عزیز سلام"
         
     return render(request,'profile.html',{"name":name,"charge":charge})
 
-
-
-@login_required
-def http_logout(request):
-    logout(request)
-    return redirect('/')
-     
 
 
 @login_required
@@ -98,17 +85,13 @@ def http_buy(request):
     return render(request,'buy.html')
 
 
-
 @login_required
-def http_payment(request):
-    pk=request.session.get("pk")
-    user=CustomUser.objects.get(pk=pk)
-    user.charge=user.charge+30
-    user.save()
-    name=user.first_name
-    charge=user.charge
-    if name:
-        name=f"{name} عزیز سلام"
+def http_logout(request):
+    admin=request.user.phone_number
+    if admin in ["09057392369","09195035763"]:
+        logout(request)
+        return redirect('/')
     else:
-        name="دوست عزیز سلام"
-    return render(request,'profile.html',{"name":name,"charge":charge})
+        return redirect('/')
+
+
