@@ -1,9 +1,11 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render,redirect
 from users.models import CustomUser
 from .defs import energy_sender,need_charge
 from django.db.models import F
 
 # Create your views here.
+@login_required
 def send_sms(request):
     admin=request.user.phone_number
     if admin in ["09057392369","09195035763"]:
